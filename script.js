@@ -27,36 +27,25 @@ Consigli del giorno:
 */
 
 
-//ASSEGNO GLI ELEMENTI DEL DOM
-const box1 = document.getElementById('casella1')
-const box2 = document.getElementById('casella2')
-const box3 = document.getElementById('casella3')
-const box4 = document.getElementById('casella4')
-const box5 = document.getElementById('casella5')
-
-const input1 = document.getElementById('input1')
-const input2 = document.getElementById('input2')
-const input3 = document.getElementById('input3')
-const input4 = document.getElementById('input4')
-const input5 = document.getElementById('input5')
+//ASSEGNO GLI ELEMENTI DEL DOM, UTILIZZO QUERYSELECTORALL IMPOSTANDO COME SELETTORE I TAG LI ED INPUT E MI CREA UN ARRAY DI CODICE HTML
+const boxes = document.querySelectorAll('li')
+const inputs = document.querySelectorAll('input')
 
 const title = document.getElementById('title')
 const timer = document.getElementById('timer')
 const btn = document.getElementById('btnConferma')
 
 
-//ASSEGNO UN VALORE RANDOM AGLI ELEMENTI DEL DOM
-box1.innerText = getRandomNumber(1,99)
-box2.innerText = getRandomNumber(1,99)
-box3.innerText = getRandomNumber(1,99)
-box4.innerText = getRandomNumber(1,99)
-box5.innerText = getRandomNumber(1,99)
-
 //CREO ARRAY CON I NUMERI ESTRATTI
-let arrayNumbers = [box1.innerText, box2.innerText,box3.innerText,box4.innerText,box5.innerText]
-
+let arrayNumbers = []
 //CREO ARRAY DOVE INSERIRO' I NUMERI INPUT DELL'UTENTE
 let arrayInput = [];
+
+// CREO CICLO CHE GENERA UN NUMERO RANDOM E LO PUSHA COME ELEMENTO NELL'ARRAY arrayNumbers
+for (let i = 0; i < boxes.length; i++) {
+  boxes[i].innerText = getRandomNumber(1,99);
+  arrayNumbers.push(boxes[i].innerText)
+}
 
 //FACCIO PARTIRE IL TIMER DI 10 SECONDI
 let seconds = 10;
@@ -70,19 +59,14 @@ const clock = setInterval(function(){
     clearInterval(clock);
 
     //FACCIO SCOMPARIRE LE CASELLE CON I NUMERI
-    box1.classList.toggle('hide')
-    box2.classList.toggle('hide')
-    box3.classList.toggle('hide')
-    box4.classList.toggle('hide')
-    box5.classList.toggle('hide')
-
+    for (let i = 0; i < boxes.length; i++) {
+     boxes[i].classList.toggle('hide')
+    }
     //FACCIO COMPARIRE I 5 INPUT ED IL BUTTON CONFERMA
-    input1.classList.toggle('hide')
-    input2.classList.toggle('hide')
-    input3.classList.toggle('hide')
-    input4.classList.toggle('hide')
-    input5.classList.toggle('hide')
-    btn.classList.toggle('hide')
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].classList.toggle('hide')
+     }
+       btn.classList.toggle('hide')
 
     //MODIFICO IL TITOLO DELLA PAGINA HTML
     title.innerText ='Inserisci i numeri nelle caselle corrispondenti e clicca conferma!'
@@ -90,36 +74,24 @@ const clock = setInterval(function(){
 seconds--
 },1000)
 
-
-
 //EVENTS
-
 btn.addEventListener('click', () => {
-
-  //ASSEGNO I DATI DI INPUT ALLA VARIABILE arrayInput
-  arrayInput = [input1.value,input2.value,input3.value,input4.value,input5.value];
-  console.log(arrayInput[0]);
   
   //CONFRONTO ELEMENTI ARRAY RANDOM CON ELEMENTI ARRAY INPUT, INCREMENTO IL CONTATORE PER OGNI PAROLA IN MATCH, POPOLO ARRAY RISULTATO
   let contatore = 0
   let arrayRisultato = []
 
 
-  for (let i = 0; i < arrayInput.length - 1; i++) {
-    if(arrayInput[i].includes(arrayNumbers)) {
+  for (let i = 0; i < inputs.length - 1; i++) {
+    if(arrayNumbers.includes(inputs[i].value)) {
       contatore++
-      arrayRisultato.push(arrayInput[i])
-
+      arrayRisultato.push(inputs[i].value)
     }
   }
-
 console.log(contatore, arrayRisultato)  
 
 })
-
-
 console.log(arrayNumbers);
-
 
 //FUNCTIONS
 
