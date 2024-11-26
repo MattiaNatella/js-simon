@@ -35,7 +35,7 @@ li {
   color: #B80106;
   font-weight: bold;
   font-size: 2rem;
-  width: 80px;
+  width: 120px;
   height: 80px;
   background-color: #00467D;
   margin: 0 25px;
@@ -48,17 +48,22 @@ li {
   text-align: center;
 }
 
-li:hover {
-  transition: 0.5s ease;
-  transform: translate(5px, 5px);
-  box-shadow:none
+
+#timer {
+  color: #B80106;
+  font-size: 5rem;
+}
+
+.hide {
+  display: none;
 }
 
 input {
   color: #B80106;
+  width: 100%;
   font-weight: bold;
   font-size: 2rem;
-  width: 80px;
+  width: 120px;
   height: 80px;
   background-color: #00467D;
   margin: 0 25px;

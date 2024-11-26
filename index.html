@@ -27,15 +27,21 @@
   <div class="container d-flex">
     
     <span id="timer">--</span>
-    <h1>Ciao! hai 10 secondi per memorizzare i seguenti numeri:</h1>
+    <h1 id="title">Ciao! hai 10 secondi per memorizzare i seguenti numeri:</h1>
     <ul id="lista" class="d-flex">
-      <li id="casella1" min="1" max="99" required></li>
-      <li id="casella2" min="1" max="99" required></li>
-      <li id="casella3" min="1" max="99" required></li>
-      <li id="casella4" min="1" max="99" required></li>
-      <li id="casella5" min="1" max="99" required></li>
+      <li id="casella1"></li>
+      <li id="casella2"></li>
+      <li id="casella3"></li>
+      <li id="casella4"></li>
+      <li id="casella5"></li>
+      <input id="input1" class="hide" type="text" min="1" max="99" required>
+      <input id="input2" class="hide" type="text" min="1" max="99" required>
+      <input id="input3" class="hide" type="text" min="1" max="99" required>
+      <input id="input4" class="hide" type="text" min="1" max="99" required>
+      <input id="input5" class="hide" type="text" min="1" max="99" required>
+    
     </ul>
-    <button id="btnConferma">Conferma</button>
+    <button id="btnConferma" class="hide">Conferma</button>
   </div>
   
 

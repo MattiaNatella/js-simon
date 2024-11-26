@@ -33,8 +33,17 @@ const box2 = document.getElementById('casella2')
 const box3 = document.getElementById('casella3')
 const box4 = document.getElementById('casella4')
 const box5 = document.getElementById('casella5')
+
+const input1 = document.getElementById('input1')
+const input2 = document.getElementById('input2')
+const input3 = document.getElementById('input3')
+const input4 = document.getElementById('input4')
+const input5 = document.getElementById('input5')
+
+const title = document.getElementById('title')
 const timer = document.getElementById('timer')
 const btn = document.getElementById('btnConferma')
+
 
 //ASSEGNO UN VALORE RANDOM AGLI ELEMENTI DEL DOM
 box1.innerText = getRandomNumber(1,99)
@@ -56,7 +65,27 @@ timer.innerHTML = seconds--;
 const clock = setInterval(function(){
   timer.innerHTML = seconds;
   if(seconds === 0) {
+
+    //FERMO IL TIMER
     clearInterval(clock);
+
+    //FACCIO SCOMPARIRE LE CASELLE CON I NUMERI
+    box1.classList.toggle('hide')
+    box2.classList.toggle('hide')
+    box3.classList.toggle('hide')
+    box4.classList.toggle('hide')
+    box5.classList.toggle('hide')
+
+    //FACCIO COMPARIRE I 5 INPUT ED IL BUTTON CONFERMA
+    input1.classList.toggle('hide')
+    input2.classList.toggle('hide')
+    input3.classList.toggle('hide')
+    input4.classList.toggle('hide')
+    input5.classList.toggle('hide')
+    btn.classList.toggle('hide')
+
+    //MODIFICO IL TITOLO DELLA PAGINA HTML
+    title.innerText ='Inserisci i numeri nelle caselle corrispondenti e clicca conferma!'
   }
 seconds--
 },1000)
