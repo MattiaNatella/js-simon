@@ -2,13 +2,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-
-body {
   font-family: "Tiny5", sans-serif;
 }
-
 
 /* UTILITIES */
 .container {
@@ -83,7 +78,6 @@ input:hover {
 }
 
 #btnConferma {
-  font-family: "Tiny5", sans-serif;
   font-size: 2rem;
   background-color: #B80106;
   margin-top: 30px;

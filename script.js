@@ -27,7 +27,7 @@ Consigli del giorno:
 */
 
 
-//DICHIARO GLI ELEMENTI DEL DOM
+//ASSEGNO GLI ELEMENTI DEL DOM
 const box1 = document.getElementById('casella1')
 const box2 = document.getElementById('casella2')
 const box3 = document.getElementById('casella3')
@@ -93,6 +93,32 @@ seconds--
 
 
 //EVENTS
+
+btn.addEventListener('click', () => {
+
+  //ASSEGNO I DATI DI INPUT ALLA VARIABILE arrayInput
+  arrayInput = [input1.value,input2.value,input3.value,input4.value,input5.value];
+  console.log(arrayInput[0]);
+  
+  //CONFRONTO ELEMENTI ARRAY RANDOM CON ELEMENTI ARRAY INPUT, INCREMENTO IL CONTATORE PER OGNI PAROLA IN MATCH, POPOLO ARRAY RISULTATO
+  let contatore = 0
+  let arrayRisultato = []
+
+
+  for (let i = 0; i < arrayInput.length - 1; i++) {
+    if(arrayInput[i].includes(arrayNumbers)) {
+      contatore++
+      arrayRisultato.push(arrayInput[i])
+
+    }
+  }
+
+console.log(contatore, arrayRisultato)  
+
+})
+
+
+console.log(arrayNumbers);
 
 
 //FUNCTIONS
