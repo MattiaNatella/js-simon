@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Tiny5", sans-serif;
+  text-align: center;
 }
 
 /* UTILITIES */
@@ -90,4 +91,15 @@ input:hover {
   transition: 0.5s ease;
   transform: translate(5px, 5px);
   box-shadow:none
+}
+
+#evidence {
+  width: 400px;
+  margin-top: 30px;
+  color: #B80106;
+  background-color: #00467D;
+  border: 3px solid #B80106;
+  border-radius: 24px;
+  box-shadow: 0 0 5px #B80106, 0 0 15px #B80106,
+              0 0 25px #B80106, 0 0 100px #B80106;
 }

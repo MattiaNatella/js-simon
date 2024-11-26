@@ -1,29 +1,10 @@
 /*
-
-**Descrizione:**
-Visualizzare in pagina 5 numeri casuali. Da lì parte un timer di 10 secondi.
-Dopo 10 secondi i numeri scompaiono e appaiono invece 5 input in cui l’utente deve inserire i numeri che ha visto precedentemente, nell’ordine che preferisce.
-Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
-
-**NOTA**: non è importante l’ordine con cui l’utente inserisce i numeri, basta che ne indovini il più possibile.
-
-**BONUS:**
-- Inseriamo la validazione: se l’utente mette due numeri uguali o inserisce cose diverse da numeri lo blocchiamo in qualche modo.
-- Se l’utente ha inserito qualcosa di non valido, segnaliamolo visivamente nel form.
-- I numeri random generati devono essere univoci
-Consigli del giorno:
-> - Pensate prima in italiano.
-> - Dividete in piccoli problemi la consegna.
-> - Individuate gli elementi di cui avete bisogno per realizzare il programma.
-> - Immaginate la logica come fosse uno snack: “Dati 2 array di numeri, indica quali e quanti numeri ci sono in comune tra i due array”
-
 *LOGICA* 
 
 1. genero 5 numeri casuali e li stampo a video
 2. faccio partire il timer di 10 secondi alla rovescia
 3. allo scadere del timer scompaiono i numeri e compaiono 5 input
 4. una volta inseriti i 5 numeri indipendentemente dall'ordine, devo restituire un risultato che indichi quanti numeri sono stati indovinati e quali
-
 */
 
 
@@ -34,15 +15,16 @@ const inputs = document.querySelectorAll('input')
 const title = document.getElementById('title')
 const timer = document.getElementById('timer')
 const btn = document.getElementById('btnConferma')
+const evidence = document.getElementById('evidence')
 
-//CREO ARRAY CON I NUMERI ESTRATTI
-let arrayNumbers = []
+//BONUS ----- CREO ARRAY CUI ASSOCIO ARRAY NUMERI RANDOM UNIVOCI GENERATO TRAMITE FUNZIONE APPOSITA
+let arrayNumbers = getUniqueRandomNumber(1,99,5)
 
-// CREO CICLO CHE GENERA UN NUMERO RANDOM E LO PUSHA COME ELEMENTO NELL'ARRAY arrayNumbers
-for (let i = 0; i < boxes.length; i++) {
-  boxes[i].innerText = getRandomNumber(1,99);
-  arrayNumbers.push(boxes[i].innerText)
-}
+// ASSEGNO ALL'INNERTEXT DI OGNI ELEMENTO DELL'NODEOFARRAYS BOXES
+ for (let i = 0; i < boxes.length; i++) {
+   boxes[i].innerText = arrayNumbers[i]
+ }
+    
 
 //FACCIO PARTIRE IL TIMER DI 10 SECONDI
 let seconds = 10;
@@ -92,8 +74,22 @@ console.log(arrayNumbers);
 
 //FUNCTIONS
 
+//GENERO NUMERI RANDOM
 function getRandomNumber(min,max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
+//GENERO NUMERI RANDOM UNIVOCI E RESTITUISCO UN ARRAY
+
+function getUniqueRandomNumber(min,max,quanti) {
+  let UniqueArray = []
+  let randomNumber = 0
+  while (UniqueArray.length < quanti) {
+    randomNumber = getRandomNumber(min,max)
+    if(!(UniqueArray.includes(randomNumber))){
+      UniqueArray.push(randomNumber)
+    }
+  }
+  return UniqueArray
+  }
 
