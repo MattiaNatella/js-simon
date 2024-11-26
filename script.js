@@ -50,6 +50,16 @@ let arrayNumbers = [box1.innerText, box2.innerText,box3.innerText,box4.innerText
 let arrayInput = [];
 
 //FACCIO PARTIRE IL TIMER DI 10 SECONDI
+let seconds = 10;
+timer.innerHTML = seconds--;
+
+const clock = setInterval(function(){
+  timer.innerHTML = seconds;
+  if(seconds === 0) {
+    clearInterval(clock);
+  }
+seconds--
+},1000)
 
 
 
