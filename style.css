@@ -32,6 +32,9 @@ body {
 }
 
 li {
+  color: #B80106;
+  font-weight: bold;
+  font-size: 2rem;
   width: 80px;
   height: 80px;
   background-color: #00467D;
@@ -40,9 +43,51 @@ li {
   border: 1px solid #B80106;
   border-radius: 24px;
   box-shadow: 5px 5px black;
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
 }
 
 li:hover {
+  transition: 0.5s ease;
+  transform: translate(5px, 5px);
+  box-shadow:none
+}
+
+input {
+  color: #B80106;
+  font-weight: bold;
+  font-size: 2rem;
+  width: 80px;
+  height: 80px;
+  background-color: #00467D;
+  margin: 0 25px;
+  padding: 25px;
+  border: 1px solid #B80106;
+  border-radius: 24px;
+  box-shadow: 5px 5px black;
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+input:hover {
+  transition: 0.5s ease;
+  transform: translate(5px, 5px);
+  box-shadow:none
+}
+
+#btnConferma {
+  font-family: "Tiny5", sans-serif;
+  font-size: 2rem;
+  background-color: #B80106;
+  margin-top: 30px;
+  border-radius: 24px;
+  box-shadow: 5px 5px black;
+  width: 160px;
+  height: 80px;
+}
+#btnConferma:active {
   transition: 0.5s ease;
   transform: translate(5px, 5px);
   box-shadow:none
