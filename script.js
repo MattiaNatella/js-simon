@@ -12,15 +12,18 @@
 const boxes = document.querySelectorAll('li')
 const inputs = document.querySelectorAll('input')
 
+console.log(boxes, inputs);
+
+
 const title = document.getElementById('title')
 const timer = document.getElementById('timer')
 const btn = document.getElementById('btnConferma')
 const evidence = document.getElementById('evidence')
 
-//BONUS ----- CREO ARRAY CUI ASSOCIO ARRAY NUMERI RANDOM UNIVOCI GENERATO TRAMITE FUNZIONE APPOSITA
+//BONUS ----- DICHIARO ARRAY CUI ASSOCIO RETURN NUMERI RANDOM UNIVOCI(ARRAY) GENERATO TRAMITE FUNZIONE APPOSITA
 let arrayNumbers = getUniqueRandomNumber(1,99,5)
 
-// ASSEGNO ALL'INNERTEXT DI OGNI ELEMENTO DELL'NODEOFARRAYS BOXES
+// ASSEGNO ALL'INNERTEXT DI OGNI ELEMENTO DEL NODELIST BOXES
  for (let i = 0; i < boxes.length; i++) {
    boxes[i].innerText = arrayNumbers[i]
  }
@@ -59,7 +62,6 @@ btn.addEventListener('click', () => {
   //CONFRONTO ELEMENTI ARRAY RANDOM CON ELEMENTI ARRAY INPUT, INCREMENTO IL CONTATORE PER OGNI PAROLA IN MATCH, POPOLO ARRAY RISULTATO
   let contatore = 0
   let arrayRisultato = []
-
 
   for (let i = 0; i < inputs.length - 1; i++) {
     if(arrayNumbers.includes(inputs[i].value)) {
