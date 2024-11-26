@@ -35,11 +35,8 @@ const title = document.getElementById('title')
 const timer = document.getElementById('timer')
 const btn = document.getElementById('btnConferma')
 
-
 //CREO ARRAY CON I NUMERI ESTRATTI
 let arrayNumbers = []
-//CREO ARRAY DOVE INSERIRO' I NUMERI INPUT DELL'UTENTE
-let arrayInput = [];
 
 // CREO CICLO CHE GENERA UN NUMERO RANDOM E LO PUSHA COME ELEMENTO NELL'ARRAY arrayNumbers
 for (let i = 0; i < boxes.length; i++) {
