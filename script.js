@@ -12,9 +12,6 @@
 const boxes = document.querySelectorAll('li')
 const inputs = document.querySelectorAll('input')
 
-console.log(boxes, inputs);
-
-
 const title = document.getElementById('title')
 const timer = document.getElementById('timer')
 const btn = document.getElementById('btnConferma')
@@ -22,13 +19,13 @@ const evidence = document.getElementById('evidence')
 
 //BONUS ----- DICHIARO ARRAY CUI ASSOCIO RETURN NUMERI RANDOM UNIVOCI(ARRAY) GENERATO TRAMITE FUNZIONE APPOSITA
 let arrayNumbers = getUniqueRandomNumber(1,99,5)
+console.log('Array numeri generati randomicamente', arrayNumbers);
 
 // ASSEGNO ALL'INNERTEXT DI OGNI ELEMENTO DEL NODELIST BOXES
  for (let i = 0; i < boxes.length; i++) {
    boxes[i].innerText = arrayNumbers[i]
  }
     
-
 //FACCIO PARTIRE IL TIMER DI 10 SECONDI
 let seconds = 10;
 timer.innerHTML = seconds--;
@@ -57,22 +54,45 @@ seconds--
 },1000)
 
 //EVENTS
+
 btn.addEventListener('click', () => {
+
   
+  // ASSEGNO AD UN ARRAY I VALORI DI INPUTS
+  let arrayInputs = []
+
+  for (let i = 0; i < inputs.length; i++) {
+  arrayInputs.push(parseInt(inputs[i].value))
+}
+  console.log('Array numeri generati da input', arrayInputs)
+
   //CONFRONTO ELEMENTI ARRAY RANDOM CON ELEMENTI ARRAY INPUT, INCREMENTO IL CONTATORE PER OGNI PAROLA IN MATCH, POPOLO ARRAY RISULTATO
   let contatore = 0
   let arrayRisultato = []
 
-  for (let i = 0; i < inputs.length - 1; i++) {
-    if(arrayNumbers.includes(inputs[i].value)) {
-      contatore++
-      arrayRisultato.push(inputs[i].value)
+  for (let i = 0; i < arrayInputs.length - 1; i++) {
+    if(arrayNumbers.includes(arrayInputs[i])) {
+      contatore++;
+      arrayRisultato.push(arrayInputs[i]);
     }
   }
 console.log(contatore, arrayRisultato)  
 
+//MOSTRO MESSAGGIO IN BASE AL RISULTATO
+if(contatore > 0 && contatore < 5){
+  evidence.innerText = `Hai indovinato ${contatore} numeri su 5! ecco quali ${arrayRisultato}`
+} else if (contatore === 0) {
+  evidence.innerText = 'GAME OVER'
+} else if (contatore === 5) {
+  evidence.innerText = `Perbacco! hai indovinato tutti i numeri! BRAVO!!`
+}
+
+evidence.classList.toggle('hide')
+
 })
-console.log(arrayNumbers);
+
+
+
 
 //FUNCTIONS
 
@@ -81,8 +101,7 @@ function getRandomNumber(min,max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
-//GENERO NUMERI RANDOM UNIVOCI E RESTITUISCO UN ARRAY
-
+//GENERO ARRAY RANDOM UNIVOCI E RESTITUISCO UN ARRAY
 function getUniqueRandomNumber(min,max,quanti) {
   let UniqueArray = []
   let randomNumber = 0
@@ -95,3 +114,40 @@ function getUniqueRandomNumber(min,max,quanti) {
   return UniqueArray
   }
 
+
+  /* validità
+  const userGuesses = []
+
+    for (let i = 0; i < inputs.length; i++) {
+    //prendo ogni valore singolo di field
+    const field = inputs[i]
+    //mi assicuro che sia un numero
+    const value = parseInt(field.value)
+
+    //validazione dati inseriti:
+
+    /*
+      se il valore è numerico
+      se è compreso fra min e max
+      se non è già stato inserito
+
+
+      if(!isNaN(value) && value >= min && value <= max && !userGuesses.includes(value)) {
+      userGuesses}
+
+    //validazione il gioco funziona solo se ho inserito i dati corretti, solo se la lungheza dell'array dei numeri giocati è uguale al totale dei numeri da giocare
+
+      if(userGuesses.lenght !== boxes.length){
+      messageElement.classlist.add('text-danger');
+      messageElement.innerHTML = 'attenzione! inserire 5 numeri corretti e senza duplicarli'
+      return (così blocco la funzione);
+      }
+
+    // a questo punto del codice i numeri sono validi
+
+      const correctAnswers = [];
+      for(let i = 0; i < userGuesses.length; i++) {
+      const guess = userGuesses[i];
+        if(numbers.includes(guess)) correctAnswers.push(guess)
+      }
+        */

@@ -6,44 +6,35 @@
   <!-- STILE CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- FONT PIXELIFY -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-
   <!-- FONT TINY5 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
 
-
-  <!-- BOOTSTRAP
-   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css' integrity='sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==' crossorigin='anonymous'/> -->
-
   <title>Simon Says</title>
 </head>
 <body>
 
-  <div class="container d-flex">
-    
-    <span id="timer">--</span>
-    <h1 id="title">Ciao! hai 10 secondi per memorizzare i seguenti numeri:</h1>
-    <ul id="lista" class="d-flex">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <input class="hide" type="text" min="1" max="99" required>
-      <input class="hide" type="text" min="1" max="99" required>
-      <input class="hide" type="text" min="1" max="99" required>
-      <input class="hide" type="text" min="1" max="99" required>
-      <input class="hide" type="text" min="1" max="99" required>
-    
-    </ul>
-    <button id="btnConferma" class="hide">Conferma</button>
-    <h1 id="evidence" class="hide"></h1>
-  </div>
+  <form action="#">
+    <div class="container d-flex">
+      <span id="timer">--</span>
+      <h1 id="title">Ciao! hai 10 secondi per memorizzare i seguenti numeri:</h1>
+      <ul id="lista" class="d-flex">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <input class="hide" type="text" min="1" max="99" required>
+        <input class="hide" type="text" min="1" max="99" required>
+        <input class="hide" type="text" min="1" max="99" required>
+        <input class="hide" type="text" min="1" max="99" required>
+        <input class="hide" type="text" min="1" max="99" required>
+      </ul>
+      <button id="btnConferma" class="hide">Conferma</button>
+      <h1 id="evidence" class="hide"></h1>
+    </div>
+  </form>
   
 
   <!-- JAVASCRIPT -->
